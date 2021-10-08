@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"golangify.com/snippetbox/morestrings"
-	"golangify.com/snippetbox/newpkg"
 	"log"
 	"net/http"
 )
@@ -28,8 +26,6 @@ func createSnippet(w http.ResponseWriter, r *http.Request) { //snippet/create/
 }
 
 func main() {
-	newpkg.NewMessage()
-	fmt.Println(morestrings.ReverseRunes("ABCDEFG"))
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/home", home)
