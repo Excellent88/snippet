@@ -1,3 +1,3 @@
-module golangify.com/snippetbox
+module snippet
 
 go 1.17
