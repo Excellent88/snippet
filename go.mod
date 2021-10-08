@@ -1,3 +1,3 @@
-module snippet
+module snippetbox
 
 go 1.17
