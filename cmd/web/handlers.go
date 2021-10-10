@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
+	"strconv"
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
@@ -27,15 +29,28 @@ func home(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Internal error server", 500)
 	}
 }
-func showSnippet(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello from showSnippet"))
+func showSnippet(w http.ResponseWriter, r *http.Request) { //snippet
+	if r.URL.Path != "/snippet" {
+		http.NotFound(w, r)
+		return
+	}
+	id, err := strconv.Atoi(r.URL.Query().Get("id"))
+	if err != nil || id < 1 {
+		http.NotFound(w, r)
+		return
+	}
+	_, err = fmt.Fprintf(w, "id is: %d", id)
 }
+
 func createSnippet(w http.ResponseWriter, r *http.Request) { //snippet/create/
+	w.Header().Set("Content-Type", "application/json")
 	if r.Method != http.MethodPost {
-		w.Header().Set("content-type", "application/json")
-		w.Write([]byte(`{"name":"Alex"}`))
+		_, err := w.Write([]byte(`{"name":"Alex"}`))
+		if err != nil {
+			http.NotFound(w, r)
+			return
+		}
 		http.Error(w, "Метод запрещен!", 405)
 		return
 	}
-	w.Write([]byte(`{"name":"Alex"}`))
 }
