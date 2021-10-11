@@ -11,6 +11,9 @@ import (
 func main() {
 
 	fmt.Println("Hello")
+	fmt.Println("Hello")
+	fmt.Println("Hello")
+	fmt.Println("Hello")
 	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	errorLog := log.New(os.Stderr, "SYSTEM\t", log.Ldate|log.Ltime|log.Lshortfile)
 
