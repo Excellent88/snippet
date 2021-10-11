@@ -4,9 +4,16 @@ import (
 	"flag"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
+
+	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
+	errorLog := log.New(os.Stderr, "SYSTEM\t", log.Ldate|log.Ltime|log.Lshortfile)
+
+	addr := flag.String("addr", ":4000", "Сетевой адрес веб-сервера")
+	flag.Parse()
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", home)
@@ -16,10 +23,8 @@ func main() {
 	fileServer := http.FileServer(http.Dir("./ui/static"))
 	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
 
-	addr := flag.String("addr", ":4000", "Сетевой адрес HTTP")
-	flag.Parse()
+	infoLog.Printf("Запуск сервера на %s", *addr)
+	err := http.ListenAndServe(":8000", mux) //addr = "host:port"
 
-	log.Printf("Connecting address is: %s", *addr)
-	err := http.ListenAndServe(*addr, mux) //addr = "host:port"
-	log.Fatal(err)
+	errorLog.Fatal(err)
 }
