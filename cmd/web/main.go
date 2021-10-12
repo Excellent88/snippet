@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/Excellent88/snippet/config"
 	"log"
 	"net/http"
 	"os"
@@ -14,7 +15,8 @@ type application struct {
 }
 
 func main() {
-	fmt.Println("asta")
+	conf := new(config.Application)
+	fmt.Println(conf.Message)
 	//flag
 	addr := flag.String("addr", ":4000", "Сетевой адрес веб-сервера")
 	flag.Parse()
