@@ -14,12 +14,12 @@ type application struct {
 }
 
 func main() {
-	fmt.Println("Allo")
-	fmt.Println("Allo")
-	fmt.Println("Allo")
-	fmt.Println("Allo")
-	fmt.Println("Allo")
-	fmt.Println("Allo")
+	fmt.Println("ELLO")
+	fmt.Println("ELLO")
+	fmt.Println("ELLO")
+	fmt.Println("ELLO")
+	fmt.Println("ELLO")
+	fmt.Println("ELLO")
 	//flag
 	addr := flag.String("addr", ":4000", "Сетевой адрес веб-сервера")
 	flag.Parse()
@@ -54,3 +54,5 @@ func main() {
 	err = srv.ListenAndServe() //addr = "host:port"
 	errorLog.Fatal(err)
 }
+
+//ssh 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
