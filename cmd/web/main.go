@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -13,6 +14,9 @@ type application struct {
 }
 
 func main() {
+	fmt.Println("Allo")
+	fmt.Println("Allo")
+	fmt.Println("Allo")
 	//flag
 	addr := flag.String("addr", ":4000", "Сетевой адрес веб-сервера")
 	flag.Parse()
