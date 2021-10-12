@@ -13,7 +13,7 @@ type application struct {
 }
 
 func (app *application) serverError(w http.ResponseWriter, err error) {
-	trace := fmt.Sprintf("%s\n%s\n %v", err.Error(), debug.Stack())
+	trace := fmt.Sprintf("%s\n%s\n", err.Error(), debug.Stack())
 	app.errorLog.Output(2, trace)
 	http.Error(w, http.StatusText(500), http.StatusInternalServerError)
 }
