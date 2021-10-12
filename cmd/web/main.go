@@ -14,12 +14,7 @@ type application struct {
 }
 
 func main() {
-	fmt.Println("ELLO")
-	fmt.Println("ELLO")
-	fmt.Println("ELLO")
-	fmt.Println("ELLO")
-	fmt.Println("ELLO")
-	fmt.Println("ELLO")
+	fmt.Println("asta")
 	//flag
 	addr := flag.String("addr", ":4000", "Сетевой адрес веб-сервера")
 	flag.Parse()
