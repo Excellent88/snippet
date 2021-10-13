@@ -57,5 +57,5 @@ func (app *application) createSnippet(w http.ResponseWriter, r *http.Request) {
 		app.clientError(w, http.StatusMethodNotAllowed)
 		return
 	}
-	w.Write([]byte("Создание новой заметки..."))
+	w.Write([]byte("Создание новой заметки...."))
 }

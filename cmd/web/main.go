@@ -29,7 +29,7 @@ func main() {
 		Handler:  app.routes(), // Вызов нового метода app.routes()
 	}
 
-	infoLog.Printf("Запуск сервера на %s", *addr)
+	infoLog.Printf("Запуск сервера на: %s", *addr)
 	err := srv.ListenAndServe()
 	errorLog.Fatal(err)
 }
